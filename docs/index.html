@@ -17,7 +17,7 @@
 </head>
 <body>
   <h1>CO2 time series lab</h1>
-  <p>Real atmospheric CO2 (ppm) for Le Mans, from Open-Meteo's Air Quality API — raw values, a rolling mean, exponential smoothing, and a linear-trend projection, all computed by <code>scripts/analyze_series.py</code> from <code>data/series.csv</code>.</p>
+  <p>Real atmospheric CO2 (ppm) for Sydney, from Open-Meteo's Air Quality API — raw values, a rolling mean, exponential smoothing, and a linear-trend projection, all computed by <code>scripts/analyze_series.py</code> from <code>data/series.csv</code>.</p>
   <div class="kpis" id="kpis">Loading...</div>
   <div id="honesty"></div>
   <canvas id="seriesChart" height="320"></canvas>
@@ -70,7 +70,7 @@ fetch('data/series_analysis.json?t=' + Date.now())
       data: { labels: allLabels, datasets },
       options: {
         plugins: {
-          title: { display: true, text: `Real atmospheric CO2 (${unit}), Le Mans — raw → cleaned → smoothed → projected (dashed = beyond observed data)` },
+          title: { display: true, text: `Real atmospheric CO2 (${unit}), Sydney — raw → cleaned → smoothed → projected (dashed = beyond observed data)` },
           tooltip: { mode: 'index', intersect: false },
         },
         scales: {
