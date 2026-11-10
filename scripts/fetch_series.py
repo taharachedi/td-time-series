@@ -4,7 +4,9 @@ import requests
 # Open-Meteo Air Quality API -- free, keyless, no registration, real hourly
 # atmospheric CO2 concentration (ppm) from a reanalysis+forecast model, not a
 # single physical sensor. past_days gives real history in ONE call.
-LAT, LON = 48.0061, 0.1996  # Le Mans
+# Stage 6 extension: location changed from Le Mans (48.0061, 0.1996) to Sydney.
+PLACE = "Sydney"
+LAT, LON = -33.8688, 151.2093  # Sydney (was Le Mans: 48.0061, 0.1996)
 PAST_DAYS = 90
 URL = "https://air-quality-api.open-meteo.com/v1/air-quality"
 
@@ -49,7 +51,7 @@ def aggregate_to_daily(times, values):
     return rows
 
 def main():
-    print(f"Fetching {PAST_DAYS} days of real hourly CO2 (ppm) for Le Mans "
+    print(f"Fetching {PAST_DAYS} days of real hourly CO2 (ppm) for {PLACE} "
           f"({LAT}, {LON}) from Open-Meteo Air Quality API...")
     data = fetch_hourly_co2()
     times = data["hourly"]["time"]
